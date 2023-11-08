@@ -32,7 +32,6 @@ def build_chain():
 
 
   llm = Bedrock(
-      #credentials_profile_name=credentials_profile,
       region_name = region,
       model_id="amazon.titan-tg1-large"
   )
