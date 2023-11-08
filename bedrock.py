@@ -45,9 +45,8 @@ def get_bedrock_client(assumed_role=None, region='us-east-1', url_override = Non
 
     bedrock_client = session.client(
         service_name='bedrock',
-        config=retry_config,
-        region_name= target_region,
-        **boto3_kwargs
+        region_name='us-east-1',
+       endpoint_url='https://bedrock.us-east-1.amazonaws.com'
         )
  
     print("boto3 Bedrock client successfully created!")
