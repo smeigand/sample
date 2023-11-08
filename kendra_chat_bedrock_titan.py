@@ -25,6 +25,8 @@ def build_chain():
   #session = boto3.Session()
   #session.profile_name
   #'default'  
+  session = boto3.Session(region_name = 'us-east-1')
+  boto3_bedrock = session.client(service_name="bedrock")
   
   region = os.environ["AWS_REGION"]
   kendra_index_id = os.environ["KENDRA_INDEX_ID"]
@@ -32,6 +34,7 @@ def build_chain():
 
 
   llm = Bedrock(
+      client=boto3_bedrock,
       region_name = region,
       model_id="amazon.titan-tg1-large"
   )
