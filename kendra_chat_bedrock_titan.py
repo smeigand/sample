@@ -5,6 +5,7 @@ from langchain.prompts import PromptTemplate
 from langchain.llms.bedrock import Bedrock
 import sys
 import os
+import boto3
 
 class bcolors:
     HEADER = '\033[95m'
@@ -21,9 +22,13 @@ MAX_HISTORY_LENGTH = 5
 
 
 def build_chain():
+  session = boto3.Session()
+  session.profile_name
+  'default'  
+  
   region = os.environ["AWS_REGION"]
   kendra_index_id = os.environ["KENDRA_INDEX_ID"]
-  credentials_profile = os.environ["AWS_PROFILE"]
+  credentials_profile = session.profile_name
 
 
   llm = Bedrock(
