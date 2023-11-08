@@ -22,17 +22,17 @@ MAX_HISTORY_LENGTH = 5
 
 
 def build_chain():
-  session = boto3.Session()
-  session.profile_name
-  'default'  
+  #session = boto3.Session()
+  #session.profile_name
+  #'default'  
   
   region = os.environ["AWS_REGION"]
   kendra_index_id = os.environ["KENDRA_INDEX_ID"]
-  credentials_profile = session.profile_name
+  #credentials_profile = session.profile_name
 
 
   llm = Bedrock(
-      credentials_profile_name=credentials_profile,
+      #credentials_profile_name=credentials_profile,
       region_name = region,
       model_id="amazon.titan-tg1-large"
   )
