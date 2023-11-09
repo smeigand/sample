@@ -31,7 +31,6 @@ def build_chain():
   bedrock_client = session.client(
         service_name='bedrock',
         region_name='us-east-1',
-       endpoint_url='https://bedrock.us-east-1.amazonaws.com'
         )  
   
   region = os.environ["AWS_REGION"]
