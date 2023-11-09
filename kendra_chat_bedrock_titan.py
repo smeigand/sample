@@ -30,7 +30,7 @@ def build_chain():
   session = boto3.Session()
   bedrock_client = session.client(
         service_name='bedrock',
-        region_name='us-east-1',
+        region_name='us-east-1'
         )  
   
   region = os.environ["AWS_REGION"]
