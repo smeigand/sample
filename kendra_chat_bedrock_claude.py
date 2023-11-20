@@ -22,14 +22,17 @@ MAX_HISTORY_LENGTH = 5
 
 
 def build_chain():
-  region = os.environ["AWS_REGION"]
+    session = boto3.Session()
+    bedrock = session.client(service_name='bedrock',region_name='us-east-1',endpoint_url='https://bedrock.us-east-1.amazonaws.com')  
+  
+  #region = os.environ["AWS_REGION"]
   kendra_index_id = os.environ["KENDRA_INDEX_ID"]
   credentials_profile = os.environ["AWS_PROFILE"]
 
 
 
   llm = Bedrock(
-      credentials_profile_name=credentials_profile,
+      client=bedrock,
       region_name = region,
       model_kwargs={"max_tokens_to_sample":300,"temperature":1,"top_k":250,"top_p":0.999,"anthropic_version":"bedrock-2023-05-31"},
       model_id="anthropic.claude-v1"
