@@ -6,6 +6,7 @@ from langchain.llms.bedrock import Bedrock
 from langchain.chains.llm import LLMChain
 import sys
 import os
+import boto3
 
 class bcolors:
     HEADER = '\033[95m'
